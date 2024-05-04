@@ -1,0 +1,66 @@
+@import "../../common/variables"
+
+.screen
+  display: flex
+  width: 100%
+  justify-content: space-between
+  align-items: flex-start
+
+.screen__out, .screens__in
+  width: 45%
+
+  canvas
+    width: 100%
+    border: 3px solid #000000
+    border-radius: 5px
+    box-sizing: border-box
+
+
+.screens__in-files
+  position: relative
+  display: inline-block
+
+.screens__in-files, .screen__out-button
+  position: relative
+  display: block
+  cursor: pointer
+  outline: none
+  text-decoration: none
+  font-size: 18px
+  vertical-align: middle
+  color: $black_color
+  text-align: center
+  border-radius: 4px
+  background-color: $btn_color
+  line-height: 22px
+  height: 40px
+  padding: 10px 20px
+  box-sizing: border-box
+  margin: 10px auto 10px auto
+  max-width: max-content
+  font-weight: 400
+  border: none
+  font-family: $main_font
+
+.screens__in-input
+  position: absolute
+  z-index: -1
+  opacity: 0
+  display: block
+  width: 0
+  height: 0
+
+.generation
+  cursor: pointer
+  margin: 0
+  padding: 5px 10px
+  border: 5px solid $btn_color
+  font-family: $main_font
+  font-size: 18px
+  background: rgba(255, 255, 255, 0)
+  transition: 0.3s
+  color: $black_color
+  align-self: center
+
+  &:hover
+    background: $btn_color
