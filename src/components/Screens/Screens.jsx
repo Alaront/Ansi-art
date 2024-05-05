@@ -8,9 +8,9 @@ import ScreenOut from "./ScreenOut";
 const Screens = ({children, ...props}) => {
     return (
         <div className={"screen"}>
-            <ScreenIn />
+            <ScreenIn setNewImage={props.setNewImage}/>
             {children}
-            <ScreenOut />
+            <ScreenOut artPixels={props.artPixels} artWidth={props.artWidth} artHeight={props.artHeight} artStep={props.artStep}/>
         </div>
     );
 };
