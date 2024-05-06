@@ -33,10 +33,20 @@ const ScreenOut = ({artPixels, artWidth, artHeight, artStep}) => {
         }
     }
 
+    const downloadArt = e => {
+        e.preventDefault();
+        let canvasUrl = canvas.current.toDataURL("image/png", 1);
+        const createEl = document.createElement('a');
+        createEl.href = canvasUrl;
+        createEl.download = "ansi-art";
+        createEl.click();
+        createEl.remove();
+    }
+
     return (
         <div className={"screen__out"}>
             <canvas ref={canvas}/>
-            <button className={"screen__out-button"}>Download</button>
+            <button className={"screen__out-button"} onClick={downloadArt}>Download</button>
         </div>
     );
 };

@@ -9,7 +9,7 @@ function App() {
     const [pixelsArt, setPixelsArt] = useState([]);
     const [widthImage, setWidthImage] = useState(0);
     const [heightImage, setHeightImage] = useState(0);
-    const [step, setStep] = useState(7)
+    const [step, setStep] = useState(8)
 
     const setNewImage = (newImage) => {
         setPixels(newImage.data);
