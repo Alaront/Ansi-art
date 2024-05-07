@@ -1,11 +1,11 @@
-const findSymbolByNumber = (g) => {
+const findSymbolByNumber = (g, pattern) => {
     const symbols = "№@#W$9876543210?!abc;:+=-,._ ";
-    const symbolsLength = symbols.length;
+    const symbolsLength = pattern.length;
     const index = Math.round((g / 255) * (symbolsLength - 1));
-    return symbols[index];
+    return pattern[index];
 }
 
-const generationArt = (pixels, step = 4, width, height) => {
+const generationArt = (pixels, step = 4, patternSymbols, colorFont, width, height) => {
     const pixelArtInfo = [];
 
     for(let y = 0; y < height; y += step) {
@@ -23,8 +23,9 @@ const generationArt = (pixels, step = 4, width, height) => {
                 let total = red + green + blue;
                 let totalAverage = total / 3
 
-                const color = `rgb(${red}, ${green}, ${blue})`;
-                const symbol = findSymbolByNumber(totalAverage);
+                const color = colorFont.type === 'all' ? `rgb(${red}, ${green}, ${blue})` : colorFont.color ;
+
+                const symbol = findSymbolByNumber(totalAverage, patternSymbols);
 
                 // maybe use total 200
                 pixelArtInfo.push({

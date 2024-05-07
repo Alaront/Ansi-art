@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 
-const ScreenOut = ({artPixels, artWidth, artHeight, artStep}) => {
+const ScreenOut = ({artPixels, artWidth, artHeight, artStep, bgColor}) => {
     const canvas = useRef(null)
     const [context, setContext] = useState();
 
@@ -18,7 +18,7 @@ const ScreenOut = ({artPixels, artWidth, artHeight, artStep}) => {
             canvas.current.height = artHeight;
 
             context.clearRect(0, 0, artWidth, artHeight);
-            context.fillStyle = "black";
+            context.fillStyle = bgColor;
             context.fillRect(0, 0, artWidth, artHeight);
             context.font = `normal ${artStep}px Verdana`
             context.font = `normal ${artStep}px Verdana`

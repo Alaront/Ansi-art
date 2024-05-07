@@ -1,0 +1,107 @@
+@import "../../common/variables"
+
+.setting
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.setting__step, .setting__color, .setting__symbol, .setting__color-font
+  width: 45%
+  margin-bottom: 30px
+
+  span
+    display: block
+    margin-bottom: 10px
+    font-size: 24px
+
+.setting__step-input
+  -webkit-appearance: none
+  appearance: none
+  width: 100%
+  cursor: pointer
+  outline: none
+  overflow: hidden
+  border-radius: 16px
+
+  input
+    width: 100%
+
+.setting__symbol
+  display: flex
+  flex-direction: column
+  width: 100%
+
+  span
+    font-family: Verdana
+    margin-bottom: 15px
+
+  input
+    margin-bottom: 15px
+    border: 1px solid $btn_color
+    padding: 5px 10px
+    border-radius: 5px
+    background: $main_bg
+    font-family: 'Verdana'
+    font-size: 20px
+
+
+  button
+    cursor: pointer
+    outline: none
+    text-decoration: none
+    font-size: 18px
+    vertical-align: middle
+    font-family: $main_font
+    color: $black_color
+    text-align: center
+    border-radius: 4px
+    background-color: $btn_color
+    line-height: 22px
+    height: 40px
+    padding: 10px 20px
+    box-sizing: border-box
+    max-width: max-content
+    border: none
+
+.setting__color-font-change
+  display: flex
+  flex-direction: column
+  width: 50%
+
+.setting__color-font-item
+  padding: 20px 40px
+  border: 2px solid #7b7b7b
+  position: relative
+  display: flex
+  align-items: center
+  margin-bottom: 10px
+
+  p
+    margin-right: 10px
+
+  span
+    cursor: pointer
+    width: 15px
+    height: 15px
+    position: absolute
+    top: 50%
+    left: 10px
+    transform: translateY(-50%)
+    border: 2px solid $btn_color
+    border-radius: 50%
+
+  &--current
+    border: 2px solid $btn_color
+
+    span
+      &:after
+        content: ''
+        width: 11px
+        height: 11px
+        position: absolute
+        top: 2px
+        left: 2px
+        background: $btn_color
+        border-radius: 50%
+
+
