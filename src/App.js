@@ -1,6 +1,6 @@
 import './index.sass'
 import Screens from "./components/Screens/Screens";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {generationArt} from "./scripts/generation";
 
 function App() {
@@ -9,7 +9,14 @@ function App() {
     const [pixelsArt, setPixelsArt] = useState([]);
     const [widthImage, setWidthImage] = useState(0);
     const [heightImage, setHeightImage] = useState(0);
-    const [step, setStep] = useState(8)
+    const [step, setStep] = useState(8);
+
+    const [isCamera, setIsCamera] = useState(false);
+
+
+    useEffect(() => {
+        if(isCamera) setPixelsArt(generationArt(pixels, step, widthImage, heightImage))
+    }, [pixels])
 
     const setNewImage = (newImage) => {
         setPixels(newImage.data);
@@ -18,16 +25,19 @@ function App() {
     }
 
     const startGeneration = (e) => {
-        e.preventDefault();
+        e || e.preventDefault();
 
         setPixelsArt(generationArt(pixels, step, widthImage, heightImage))
+    }
 
+    const changeCamera = (state) => {
+        setIsCamera(state)
     }
 
 
     return (
         <div className="App">
-          <Screens setNewImage={setNewImage} artPixels={pixelsArt} artWidth={widthImage} artHeight={heightImage} artStep={step}>
+          <Screens setNewImage={setNewImage} artPixels={pixelsArt} artWidth={widthImage} artHeight={heightImage} artStep={step} changeCamera={changeCamera}>
               <button onClick={startGeneration} className={"generation"}>Generation</button>
           </Screens>
         </div>

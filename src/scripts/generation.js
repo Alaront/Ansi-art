@@ -33,7 +33,6 @@ const generationArt = (pixels, step = 4, width, height) => {
                     color,
                     symbol
                 })
-
             }
         }
     }
